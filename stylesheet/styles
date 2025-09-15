@@ -1,0 +1,394 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+   --cor-primaria: #aaa9a9;
+    --cor-secundaria: #f770f0;
+    --cor-terciaria: #8bf7d6;
+    --cor-tracado: #0000;
+}
+body{
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.background{
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../assets/bg.png") no-repeat center center/cover;
+    z-index: -2;
+}
+.background-overlay{
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, 0.85)
+}
+.content{
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    
+}
+.home-content{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.content-header{
+    font-family: 'Cheee Demo Baby', sans-serif ;
+    font-weight: 500;
+    font-size: 4rem;
+    color: #ffff;
+    text-align: center;
+   
+}
+.troca-cor {
+  color: #5e5e5e;
+  -webkit-text-stroke: 2px white;
+}
+.content-text{
+    font-family: 'Cheee Demo Wowie', sans-serif ;
+    color: #ffff;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    
+}
+.content-list{
+    font-family: 'Cheee Demo Wowie', sans-serif ;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    font-weight: 400;
+    font-size: 2rem;
+    }
+.more, .contact{
+  text-decoration: none;
+  position: relative;
+  color: #5e5e5e;
+  -webkit-text-stroke: 1px white;
+}
+.more::after, .contact::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffffff;
+    transition: width 0.5s ease;
+}
+.more:hover::after, .contact:hover::after{
+  width: 100%;
+}
+.more:hover, .contact:hover {
+  color: #e2e2e2;
+  -webkit-text-stroke: 1px #5e5e5e;
+}
+
+.about-content, .contact-content{
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding-top: 15%;
+  box-sizing: border-box;
+}
+
+.about-titulo{
+  font-family: 'Cheee Demo Wowie', sans-serif ;
+  color: #5e5e5e;
+  -webkit-text-stroke: 1px white;
+  font-size: 3rem;
+  align-self: flex-start;
+  margin: 0 10%;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 0.3rem;
+}
+.more-content-text{
+  
+  font-family: 'Cheee Demo Wowie', sans-serif ;
+  color: #ffff;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: justify;
+  margin: 0 10% 0 10%;
+}
+.resume{
+  font-family: 'Cheee Demo Wowie', sans-serif ;
+  color: #5e5e5e;
+  gap: 50px;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: justify;
+  position: relative;
+  -webkit-text-stroke: 1px white;
+  text-decoration: none;
+}
+.resume::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffffff;
+  transition: width 0.5s ease;
+}
+.resume:hover::after{
+  width: 100%;
+}
+.resume:hover{
+  color: #e2e2e2;
+  -webkit-text-stroke: 1px #5e5e5e;
+}
+
+.contact-titulo{
+
+  font-family: 'Cheee Demo Wowie', sans-serif ;
+  color: #5e5e5e;
+  -webkit-text-stroke: 1px white;
+  font-size: 3rem;
+  align-self: flex-start;
+  margin: 0 30%;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 0.3rem;
+
+}
+.contact-socials{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 50%;
+  margin: 0 40%;
+  list-style: none;
+}
+.contact-socials li{
+  list-style: none;
+}
+.contact-socials a img{
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.contact-socials a:hover img {
+  transform: scale(1.1); 
+}
+
+.menu-hamburguer{
+  position: absolute;
+  top : 40px;
+  right: 40px;
+  z-index: 4;
+}
+#menu-toggle{
+  display: none;
+}
+
+.menu-icon{
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 5;
+  position: relative;
+  cursor: pointer;
+}
+.linha{
+  height: 4px;
+  background-color: #ffff;
+  border-radius: 2px;
+  transition: 0.5s;
+
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(56, 56, 56, 0.95);
+  z-index: 2;
+  clip-path: circle(0% at calc(100vw - 40px) 40px);
+  transition: clip-path 1s ease;
+  pointer-events: none;
+}
+.menu{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  text-align: center;
+}
+.menu ul{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.menu ul li{
+  margin: 20px 0;
+}
+.menu a{
+  text-decoration: none;
+  font-size: 2rem;
+  color: #5e5e5e;
+  -webkit-text-stroke: #ffffff;
+  font-family:'Cheee Demo Wowie', sans-serif ;
+  font-size: 3rem;
+  -webkit-text-stroke: 2px white;
+  position: relative;
+  
+}
+.menu a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #ffffff;
+    transition: width 0.5s ease;
+}
+.menu a:hover::after{
+  width: 100%;
+}
+.menu a:hover{
+  color: #e2e2e2;
+  -webkit-text-stroke: 2px #5e5e5e;
+}
+
+#menu-toggle:checked + .menu-icon .linha:nth-child(1){
+  transform: rotate(45deg) translate(13px, 13px) ;
+  
+}
+#menu-toggle:checked + .menu-icon .linha:nth-child(2){
+  opacity: 0;
+}
+#menu-toggle:checked + .menu-icon .linha:nth-child(3){
+   transform: rotate(-45deg) translate(5px, -5px) ;
+}
+#menu-toggle:checked ~ .overlay {
+  clip-path: circle(150% at calc(100vw - 40px) 40px);
+  pointer-events: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Circles base style */
+.circle {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f770f0, #8bf7d6);
+  pointer-events: none; /* faz os círculos ignorarem eventos de clique */
+  z-index: -1; /* coloca os círculos atrás do conteúdo */
+  will-change: transform;
+}
+
+/* Sizes */
+.large {
+  width: 400px;
+  height: 400px;
+}
+
+.small {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #f770f0, #8bf7d6);
+}
+
+/* Animations for floating across the screen */
+
+/* Circle 1: moves diagonally top-left to bottom-right */
+@keyframes float1 {
+  0% {
+    transform: translate(-250px, -250px);
+  }
+  100% {
+    transform: translate(calc(100vw + 250px), calc(100vh + 250px));
+  }
+}
+
+/* Circle 2: moves diagonally bottom-right to top-left */
+@keyframes float2 {
+  0% {
+    transform: translate(calc(100vw + 250px), calc(100vh + 250px));
+  }
+  100% {
+    transform: translate(-250px, -250px);
+  }
+}
+
+/* Circle 3: moves horizontally left to right */
+@keyframes float3 {
+  0% {
+    transform: translateX(-150px) translateY(50vh);
+  }
+  100% {
+    transform: translateX(calc(100vw + 150px)) translateY(50vh);
+  }
+}
+
+/* Circle 4: moves vertically top to bottom */
+@keyframes float4 {
+  0% {
+    transform: translateX(50vw) translateY(-150px);
+  }
+  100% {
+    transform: translateX(50vw) translateY(calc(100vh + 150px));
+  }
+}
+
+/* Assign animations with different durations and delays */
+.circle1 {
+  animation: float1 40s linear infinite;
+  top: 0;
+  left: 0;
+}
+
+.circle2 {
+  animation: float2 50s linear infinite;
+  top: 0;
+  left: 0;
+}
+
+.circle3 {
+  animation: float3 35s linear infinite;
+  top: 0;
+  left: 0;
+}
+
+.circle4 {
+  animation: float4 45s linear infinite;
+  top: 0;
+  left: 0;
+}
